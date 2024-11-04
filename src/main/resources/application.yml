@@ -2,9 +2,7 @@ server:
   port: 9002
   shutdown: graceful
   netty:
-    # ??? TCP ??? ???? ?? ???? ??
     connection-timeout: 2s
-    # ???? ???? ?? ?? TCP??? ?? ?? ???? ??
     idle-timeout: 15s
 
 spring:
@@ -15,7 +13,7 @@ spring:
   r2dbc:
     username: user
     password: password
-    url: r2dbc:postgresql://localhost:5432/polar_order
+    url: r2dbc:postgresql://localhost:5432/polardb_order
     pool:
       max-create-connection-time: 2s
       initial-size: 5
@@ -23,5 +21,5 @@ spring:
   flyway:
     user: ${spring.r2dbc.username}
     password: ${spring.r2dbc.password}
-    # R2DBC? ?? ??? DB? ???? ?? JDBC ??
+    # R2DBC에 대해 설정한 db를 연결하기 위해 JDBC 사용
     url: jdbc:postgresql://localhost:5432/polardb_order
