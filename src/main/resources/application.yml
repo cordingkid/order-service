@@ -23,3 +23,6 @@ spring:
     password: ${spring.r2dbc.password}
     # R2DBC에 대해 설정한 db를 연결하기 위해 JDBC 사용
     url: jdbc:postgresql://localhost:5432/polardb_order
+
+polar:
+  catalog-service-uri: "http://localhost:9001"
