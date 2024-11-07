@@ -47,6 +47,14 @@ class OrderRepositoryR2dbcTests {
     }
 
     @Test
+    void findOrderByIdWhenNotExisting() {
+        StepVerifier
+                .create(orderRepository.findById(394L))
+                .expectNextCount(0)
+                .verifyComplete();
+    }
+
+    @Test
     void createRejectedOrder() {
         var rejectedOrder = OrderService.buildRejectedOrder( "1234567890", 3);
         StepVerifier
