@@ -13,7 +13,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Mono;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 // OrderController를 대상으로 한 웹플러스 컴포넌트에 집중하는 테스트
 @WebFluxTest(OrderController.class)
