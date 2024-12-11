@@ -21,11 +21,7 @@ public class OrderController {
     }
 
     @PostMapping
-    public Mono<Order> submitOrder(
-            @RequestBody @Valid OrderRequest orderRequest
-    ) {
-        return orderService.submitOrder(
-                orderRequest.isbn(), orderRequest.quantity()
-        );
+    public Mono<Order> submitOrder(@RequestBody @Valid OrderRequest orderRequest) {
+        return orderService.submitOrder(orderRequest.isbn(), orderRequest.quantity());
     }
 }
