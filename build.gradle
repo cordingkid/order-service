@@ -19,6 +19,7 @@ repositories {
 
 ext {
 	set('springCloudVersion', "2023.0.2")
+	set('testKeycloakVersion', "3.3.1")
 }
 
 dependencies {
@@ -27,6 +28,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	implementation 'org.springframework.cloud:spring-cloud-stream-binder-rabbit'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 
 	runtimeOnly 'org.postgresql:postgresql'
 	runtimeOnly 'org.postgresql:r2dbc-postgresql'
@@ -40,7 +42,9 @@ dependencies {
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+	testImplementation "com.github.dasniko:testcontainers-keycloak:${testKeycloakVersion}"
 	testImplementation 'io.projectreactor:reactor-test'
 	testImplementation 'com.squareup.okhttp3:mockwebserver'
 	testImplementation 'org.testcontainers:junit-jupiter'
