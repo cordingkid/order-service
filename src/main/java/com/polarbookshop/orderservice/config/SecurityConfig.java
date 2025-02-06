@@ -13,6 +13,7 @@ public class SecurityConfig {
     @Bean
     SecurityWebFilterChain filterChain(ServerHttpSecurity http) {
         return http.authorizeExchange(exchange -> exchange
+                        .pathMatchers("/actuator/**").permitAll()
                         .anyExchange().authenticated())
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()))          // JWT에 기반한 기본 설정을 사용해 OAuth2 리소스 서버 지원활성화
                 .requestCache(requestCacheSpec ->   // 각 요청은 엑세스 토큰을 가지고 있어야 하기 때문에 요청 간 세션 캐시를 유지할 필요 없음 (상태 같지 않는다.)
